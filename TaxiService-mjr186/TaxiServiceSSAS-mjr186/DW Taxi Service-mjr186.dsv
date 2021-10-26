@@ -1,0 +1,204 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c169d3c7-0ee7-406b-9829-0bd430cb8f72" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DW Taxi Service-mjr186</ID>
+  <Name>DW Taxi Service-mjr186</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>DW Taxi Service-mjr186</DataSourceID>
+  <Schema>
+    <xs:schema id="DW_x0020_Taxi_x0020_Service-mjr186" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="DW_x0020_Taxi_x0020_Service-mjr186" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="01f48fdc-af38-46e9-81e1-e6d3ddc7e10f">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_DimCity" msprop:design-time-name="c6e1c087-f3fe-4a65-8a57-761a850f2d93" msprop:DbTableName="DimCity" msprop:FriendlyName="DimCity" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CityKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="cd66f70b-4458-4cdd-9591-87257f7a75a3" msprop:DbColumnName="CityKey" msprop:FriendlyName="CityKey" type="xs:int" />
+                  <xs:element name="CityId" msprop:design-time-name="efa43ffc-7378-4a4b-b1ae-1936e9dbc725" msprop:DbColumnName="CityId" msprop:FriendlyName="CityId">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CityName" msprop:design-time-name="7607d186-cc67-49ee-bff9-965458113a34" msprop:DbColumnName="CityName" msprop:FriendlyName="CityName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimDates" msprop:design-time-name="009d1e74-1d85-47b7-bb48-86a1ca12a70f" msprop:DbTableName="DimDates" msprop:FriendlyName="DimDates" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="DateKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="08e9f38f-ce31-4e66-a2f6-fe8a0f4d1014" msprop:DbColumnName="DateKey" msprop:FriendlyName="DateKey" type="xs:int" />
+                  <xs:element name="Date" msprop:design-time-name="8b807506-40a5-43c2-ae86-58e45fdcd98f" msprop:DbColumnName="Date" msprop:FriendlyName="Date" type="xs:dateTime" />
+                  <xs:element name="DateName" msprop:design-time-name="a310b19c-2d85-4d49-bd01-c0db70d74f5e" msprop:DbColumnName="DateName" msprop:FriendlyName="DateName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Month" msprop:design-time-name="4fdb0b06-6992-4b99-9b44-ad73d13c580b" msprop:DbColumnName="Month" msprop:FriendlyName="Month" type="xs:int" />
+                  <xs:element name="MonthName" msprop:design-time-name="54ba7433-e740-4d35-b762-e5217580993a" msprop:DbColumnName="MonthName" msprop:FriendlyName="MonthName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Year" msprop:design-time-name="67c3e174-6da7-4053-a29f-daf945cfc021" msprop:DbColumnName="Year" msprop:FriendlyName="Year" type="xs:int" />
+                  <xs:element name="YearName" msprop:design-time-name="aa464926-189d-4ef0-b43e-e5b814fd8b9d" msprop:DbColumnName="YearName" msprop:FriendlyName="YearName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimDriver" msprop:design-time-name="9d63c91f-da80-40ce-8122-f170c4ca597f" msprop:DbTableName="DimDriver" msprop:FriendlyName="DimDriver" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="DriverKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="9b6f47d0-b895-4eed-ad51-827f3900b9a7" msprop:DbColumnName="DriverKey" msprop:FriendlyName="DriverKey" type="xs:int" />
+                  <xs:element name="DriverId" msprop:design-time-name="101ff262-da69-4b66-8d59-ab7a3a0d21d1" msprop:DbColumnName="DriverId" msprop:FriendlyName="DriverId">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="8" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DriverName" msprop:design-time-name="3818b064-f966-4d06-ba64-9fffe45d15f8" msprop:DbColumnName="DriverName" msprop:FriendlyName="DriverName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimLocation" msprop:design-time-name="5928558a-00e7-49f7-aea0-86352c902b89" msprop:DbTableName="DimLocation" msprop:FriendlyName="DimLocation" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="LocationKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="50681a4d-94d6-43f0-a423-449da62cdc73" msprop:DbColumnName="LocationKey" msprop:FriendlyName="LocationKey" type="xs:int" />
+                  <xs:element name="CityKey" msprop:design-time-name="8938b050-140c-4bd6-84f6-3ef82b88d69b" msprop:DbColumnName="CityKey" msprop:FriendlyName="CityKey" type="xs:int" />
+                  <xs:element name="StreetId" msprop:design-time-name="f89bd9a1-ee3d-475c-ae58-ebbca2c54ed2" msprop:DbColumnName="StreetId" msprop:FriendlyName="StreetId">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Street" msprop:design-time-name="9213c5de-206a-4eac-a859-8f492bbcdc9d" msprop:DbColumnName="Street" msprop:FriendlyName="Street">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_FactTrips" msprop:design-time-name="2dca9e72-083e-4286-9fdf-6e33ae87729f" msprop:DbTableName="FactTrips" msprop:FriendlyName="FactTrips" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TripKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="43755079-7cdf-48f2-8ef2-1872b96ebbb5" msprop:DbColumnName="TripKey" msprop:FriendlyName="TripKey" type="xs:int" />
+                  <xs:element name="TripNumber" msprop:design-time-name="4a1c69b2-9ce7-45c4-b741-b93398945032" msprop:DbColumnName="TripNumber" msprop:FriendlyName="TripNumber">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DateKey" msprop:design-time-name="2924adcc-083c-4ab5-906f-6abf894aa37e" msprop:DbColumnName="DateKey" msprop:FriendlyName="DateKey" type="xs:int" />
+                  <xs:element name="LocationKey" msprop:design-time-name="7d717542-05d3-41a3-b057-59e646f8ede2" msprop:DbColumnName="LocationKey" msprop:FriendlyName="LocationKey" type="xs:int" />
+                  <xs:element name="DriverKey" msprop:design-time-name="eac79e9f-4640-4e55-8b5f-4d2fe3680370" msprop:DbColumnName="DriverKey" msprop:FriendlyName="DriverKey" type="xs:int" />
+                  <xs:element name="TripMileage" msprop:design-time-name="6f2d2d00-1706-4bc4-80f9-f166b6b5c06b" msprop:DbColumnName="TripMileage" msprop:FriendlyName="TripMileage" type="xs:decimal" />
+                  <xs:element name="TripCharge" msprop:design-time-name="6590b6aa-76d3-4761-8209-9728c80c3880" msprop:DbColumnName="TripCharge" msprop:FriendlyName="TripCharge" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimCity" />
+          <xs:field xpath="CityKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimDates_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimDates" />
+          <xs:field xpath="DateKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimDriver_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimDriver" />
+          <xs:field xpath="DriverKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimLocation_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimLocation" />
+          <xs:field xpath="LocationKey" />
+        </xs:unique>
+        <xs:unique name="dbo_FactTrips_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactTrips" />
+          <xs:field xpath="TripKey" />
+        </xs:unique>
+        <xs:keyref name="FK_FactTrips_DimDriver" refer="dbo_DimDriver_Constraint1">
+          <xs:selector xpath=".//dbo_FactTrips" />
+          <xs:field xpath="DriverKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactTrips_DimDates" refer="dbo_DimDates_Constraint1">
+          <xs:selector xpath=".//dbo_FactTrips" />
+          <xs:field xpath="DateKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactTrips_DimLocation" refer="dbo_DimLocation_Constraint1">
+          <xs:selector xpath=".//dbo_FactTrips" />
+          <xs:field xpath="LocationKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_DimLocation_DimCity" refer="Constraint1">
+          <xs:selector xpath=".//dbo_DimLocation" />
+          <xs:field xpath="CityKey" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <DW_x0020_Taxi_x0020_Service-mjr186 xmlns="" />
+  </Schema>
+</DataSourceView>

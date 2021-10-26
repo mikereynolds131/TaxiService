@@ -1,0 +1,82 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>TaxiServiceSSAS-mjr186</Database>
+    <Server>cissql.matrix.txstate.edu\cis4349sp19s251</Server>
+    <ConnectionString>Data Source=cissql.matrix.txstate.edu\cis4349sp19s251;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>dKq5hCRwtBHppvSQFDeeJXGaktU=5/6/2019 12:18:10 AM4/27/2019 4:39:17 PM</TimeStamp>
+        <ID>
+          <String>DW Taxi Service-mjr186</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>j3vy1CV7zZ1OmTVbPGSUDUwZ660=4/27/2019 4:44:42 PM4/27/2019 4:44:38 PM</TimeStamp>
+        <ID>
+          <String>DW Taxi Service-mjr186</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>P6FiSZ46i+4yRNbF7OZjvdCaPEw=4/30/2019 11:46:18 AM4/30/2019 11:43:05 AM</TimeStamp>
+        <ID>
+          <String>Dim Driver</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>IoSDSgOir0joyrV8GH6F9CeAQ/s=4/30/2019 11:54:56 AM4/30/2019 11:51:51 AM</TimeStamp>
+        <ID>
+          <String>Dim Dates</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EbeagRB2V1DEvYazmMvp76boC1Q=4/30/2019 12:47:20 PM4/30/2019 11:57:24 AM</TimeStamp>
+        <ID>
+          <String>Dim Location</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>xFAfQDmVzsljFWWygpxkM+4gB5g=4/30/2019 12:01:52 PM4/30/2019 12:01:51 PM</TimeStamp>
+        <ID>
+          <String>Fact Trips</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>uzgBOjI/uwP7uPIRIqjFxF9XWuA=5/2/2019 1:39:34 PM4/30/2019 1:16:12 PMf9TgfmYw9f4uym5RBMqUjRb2BDA=4/30/2019 1:32:18 PM4/30/2019 1:16:12 PM</TimeStamp>
+        <ID>
+          <String>TaxiServiceBICube--mjr186</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>8GT2WUG9omVik40vdaTrU6QsaD8=4/27/2019 4:30:02 PM4/27/2019 4:29:59 PM</TimeStamp>
+      <ID>
+        <String>TaxiServiceSSAS-mjr186</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2019-05-06T05:18:29.603333Z</LastDeployed>
+</DeploymentSnapshot>

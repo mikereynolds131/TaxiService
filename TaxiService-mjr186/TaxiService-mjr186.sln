@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "TaxiService-Assignment1-mjr186", "TaxiService-Assignment1-mjr186\TaxiService-Assignment1-mjr186.dtproj", "{37FE1D28-A132-4730-B3DA-B8B4666E5657}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionDocuments", "SolutionDocuments", "{2BE9A521-9085-49A8-8767-4F74208832DB}"
+	ProjectSection(SolutionItems) = preProject
+		TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\CreatespPopulateDimDates.sql = TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\CreatespPopulateDimDates.sql
+		TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\CreatespPopulateDimDriver.sql = TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\CreatespPopulateDimDriver.sql
+		C:\Users\Mike Reynolds\Desktop\script\CreatevwDataForDimLocation.sql = C:\Users\Mike Reynolds\Desktop\script\CreatevwDataForDimLocation.sql
+		TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\CreatevwDataForFactTrips.sql = TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\CreatevwDataForFactTrips.sql
+		TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\DWTaxiServiceETL-mjr186.sql = TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\DWTaxiServiceETL-mjr186.sql
+		C:\Users\Mike Reynolds\Desktop\DWTaxiServiceETLScript-mjr186.sql = C:\Users\Mike Reynolds\Desktop\DWTaxiServiceETLScript-mjr186.sql
+		TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\InstallDWTaxiServiceDataBase-mjr186.sql = TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\InstallDWTaxiServiceDataBase-mjr186.sql
+		..\..\..\Scripts\runspPopulateDimDates.sql = ..\..\..\Scripts\runspPopulateDimDates.sql
+		..\..\..\Scripts\runvwDataForDimLocation.sql = ..\..\..\Scripts\runvwDataForDimLocation.sql
+		..\..\..\Scripts\runvwDataForFactTrips.sql = ..\..\..\Scripts\runvwDataForFactTrips.sql
+		TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\TaxiServiceDB-mjr186.sql = TaxiService-Assignment1-mjr186\SolutionDocuments\Scripts\TaxiServiceDB-mjr186.sql
+		..\SolutionDocuments\TaxiServicePlanningDocument-mjr186.xlsx = ..\SolutionDocuments\TaxiServicePlanningDocument-mjr186.xlsx
+		..\..\..\Scripts\TestspPopulateDimDriver.sql = ..\..\..\Scripts\TestspPopulateDimDriver.sql
+	EndProjectSection
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DWTaxiServiceSSISProject", "DWTaxiServiceSSISProject\DWTaxiServiceSSISProject.dtproj", "{3F16CA4D-34F1-4418-9A7F-17E9F8A2CBD8}"
+EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "TaxiServiceSSAS-mjr186", "TaxiServiceSSAS-mjr186\TaxiServiceSSAS-mjr186.dwproj", "{33B44963-E782-4E4D-90CE-92BBEA999809}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37FE1D28-A132-4730-B3DA-B8B4666E5657}.Development|Default.ActiveCfg = Development
+		{37FE1D28-A132-4730-B3DA-B8B4666E5657}.Development|Default.Build.0 = Development
+		{3F16CA4D-34F1-4418-9A7F-17E9F8A2CBD8}.Development|Default.ActiveCfg = Development
+		{3F16CA4D-34F1-4418-9A7F-17E9F8A2CBD8}.Development|Default.Build.0 = Development
+		{33B44963-E782-4E4D-90CE-92BBEA999809}.Development|Default.ActiveCfg = Development
+		{33B44963-E782-4E4D-90CE-92BBEA999809}.Development|Default.Build.0 = Development
+		{33B44963-E782-4E4D-90CE-92BBEA999809}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1BD1847-C197-4A67-A2CE-5D83148D51E8}
+	EndGlobalSection
+EndGlobal

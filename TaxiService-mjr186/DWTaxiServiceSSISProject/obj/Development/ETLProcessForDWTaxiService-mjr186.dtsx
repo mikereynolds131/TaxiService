@@ -1,0 +1,1977 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/27/2019 2:39:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-FSQ5SCO"
+  DTS:CreatorName="DESKTOP-FSQ5SCO\Mike Reynolds"
+  DTS:DTSID="{322E20A2-9BE6-402E-A12F-BB20F323E6A4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ETLProcessForDWTaxiService-mjr186"
+  DTS:PackageType="5"
+  DTS:VersionBuild="104"
+  DTS:VersionGUID="{36F3C250-2D98-4D42-8A4A-6C36DE9CC3E1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fill Dimension Tables Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E8B07CFE-5791-4D47-B4C7-6B7E64D50043}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Dimension Tables Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2A6B35B9-8D40-4367-8D0F-FD3F85104529}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fill DimCity"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Inputs[Data Conversion Input].Columns[City_Code]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="City_Code"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].Columns[City_Code]" />
+                        <inputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Inputs[Data Conversion Input].Columns[CityName]"
+                          cachedDataType="wstr"
+                          cachedLength="102"
+                          cachedName="CityName"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Output].Columns[CityName]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Output].Columns[CityId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Output].Columns[CityId]"
+                          name="CityId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].Columns[City_Code]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Output].Columns[CityName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Output].Columns[CityName]"
+                          name="CityName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Output].Columns[CityName]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Inputs[Derived Column Input].Columns[CountryName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CountryName"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].Columns[CountryName]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Output].Columns[CityName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="102"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Output].Columns[CityName]"
+                          name="CityName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].Columns[CountryName]},"Uknown")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(CountryName,"Uknown")</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Fill DimCity in DWTaxiService-mjr186"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimCity]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Connections[OleDbConnection]"
+                      connectionManagerID="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[cissql.matrix.txstate.edu_cis4349sp19s251.DWTaxiService-mjr186]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input].Columns[CityId]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CityId"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input].ExternalColumns[CityId]"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Output].Columns[CityId]" />
+                        <inputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input].Columns[CityName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CityName"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Output].Columns[CityName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input].ExternalColumns[CityKey]"
+                          dataType="i4"
+                          name="CityKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input].ExternalColumns[CityId]"
+                          dataType="wstr"
+                          length="10"
+                          name="CityId" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CityName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Get City Data From City Table in TaxiService"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[City]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Connections[OleDbConnection]"
+                      connectionManagerID="{61D3A41E-B840-44DB-84CB-6DCF8C070230}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[cissql.matrix.txstate.edu_cis4349sp19s251.TaxiServiceDB-mjr186]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].Columns[City_Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].ExternalColumns[City_Code]"
+                          length="5"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].Columns[City_Code]"
+                          name="City_Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].Columns[CountryName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].ExternalColumns[CountryName]"
+                          length="50"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].Columns[CountryName]"
+                          name="CountryName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].ExternalColumns[City_Code]"
+                          dataType="wstr"
+                          length="5"
+                          name="City_Code" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output].ExternalColumns[CountryName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CountryName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Error Output].Columns[City_Code]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Error Output].Columns[City_Code]"
+                          name="City_Code" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Error Output].Columns[CountryName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Error Output].Columns[CountryName]"
+                          name="CountryName" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity.Paths[Data Conversion Output]"
+                  endId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity.Paths[Derived Column Output]"
+                  endId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimCity.Paths[OLE DB Source Output]"
+                  endId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fill Dimension Tables Sequence Container\Fill DimDates"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{AF71846B-5959-411C-8E3B-84D84DA6A9A0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fill DimDates"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}"
+              SQLTask:SqlStatementSource="exec spPopulateDimDates @StartDate = N'01/01/2010',  @EndDate = '12/31/2019'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fill Dimension Tables Sequence Container\Fill DimDriver (sp)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1719DC5B-9DD3-4084-A5DC-91E81A500EAE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fill DimDriver (sp)"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}"
+              SQLTask:SqlStatementSource="spPopulateDimDriver" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A447203D-AB7F-4174-B6B2-DEE785103821}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fill DimLocations"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Fill DimLocations"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimLocation]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Connections[OleDbConnection]"
+                      connectionManagerID="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[cissql.matrix.txstate.edu_cis4349sp19s251.DWTaxiService-mjr186]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].Columns[Street]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Street"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].ExternalColumns[Street]"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].Columns[Street]" />
+                        <inputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].Columns[StreetId]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="StreetId"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].ExternalColumns[StreetId]"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].Columns[StreetId]" />
+                        <inputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].Columns[CityKey]"
+                          cachedDataType="i4"
+                          cachedName="CityKey"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].ExternalColumns[CityKey]"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].Columns[CityKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                          dataType="i4"
+                          name="LocationKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].ExternalColumns[CityKey]"
+                          dataType="i4"
+                          name="CityKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].ExternalColumns[StreetId]"
+                          dataType="wstr"
+                          length="10"
+                          name="StreetId" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input].ExternalColumns[Street]"
+                          dataType="wstr"
+                          length="50"
+                          name="Street" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Gets DimLocation data from OLTP"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[vwDataForDimLocations]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Connections[OleDbConnection]"
+                      connectionManagerID="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[cissql.matrix.txstate.edu_cis4349sp19s251.DWTaxiService-mjr186]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].Columns[CityKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].ExternalColumns[CityKey]"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].Columns[CityKey]"
+                          name="CityKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].Columns[StreetId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].ExternalColumns[StreetId]"
+                          length="10"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].Columns[StreetId]"
+                          name="StreetId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].Columns[Street]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].ExternalColumns[Street]"
+                          length="50"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].Columns[Street]"
+                          name="Street"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].ExternalColumns[CityKey]"
+                          dataType="i4"
+                          name="CityKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].ExternalColumns[StreetId]"
+                          dataType="wstr"
+                          length="10"
+                          name="StreetId" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output].ExternalColumns[Street]"
+                          dataType="wstr"
+                          length="50"
+                          name="Street" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[CityKey]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[CityKey]"
+                          name="CityKey" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[StreetId]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[StreetId]"
+                          name="StreetId" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[Street]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[Street]"
+                          name="Street" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations.Paths[OLE DB Source Output]"
+                  endId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fill Dimension Tables Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9FB0D318-3B5B-403A-83E5-045D22D5BBA6}"
+          DTS:From="Package\Fill Dimension Tables Sequence Container\Fill DimCity"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Fill Dimension Tables Sequence Container\Fill DimDriver (sp)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fill Dimension Tables Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{37E7C64F-00ED-4B2B-A0A6-8713EEF04BA5}"
+          DTS:From="Package\Fill Dimension Tables Sequence Container\Fill DimDriver (sp)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Fill Dimension Tables Sequence Container\Fill DimDates" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fill Dimension Tables Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{649E6B58-7855-405E-B050-449B38A570BF}"
+          DTS:From="Package\Fill Dimension Tables Sequence Container\Fill DimDates"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Fill Dimension Tables Sequence Container\Fill DimLocations" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill Fact Table Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F0AE03DE-F46F-4016-B8D4-29513AB73315}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Fact Table Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{75B169F8-0724-4B74-BA38-9B56916E516C}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fill FactTrip View"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FactTrips]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[cissql.matrix.txstate.edu_cis4349sp19s251.DWTaxiService-mjr186]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TripNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TripNumber"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TripNumber]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[TripNumber]" />
+                        <inputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                          cachedDataType="i4"
+                          cachedName="DateKey"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                        <inputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LocationKey]"
+                          cachedDataType="i4"
+                          cachedName="LocationKey"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationKey]" />
+                        <inputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TripCharge]"
+                          cachedDataType="numeric"
+                          cachedName="TripCharge"
+                          cachedPrecision="18"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TripCharge]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[TripCharge]" />
+                        <inputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DriverKey]"
+                          cachedDataType="i4"
+                          cachedName="DriverKey"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DriverKey]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[DriverKey]" />
+                        <inputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TripMileage]"
+                          cachedDataType="numeric"
+                          cachedName="TripMileage"
+                          cachedPrecision="18"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TripMileage]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[TripMileage]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TripKey]"
+                          dataType="i4"
+                          name="TripKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TripNumber]"
+                          dataType="wstr"
+                          length="50"
+                          name="TripNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                          dataType="i4"
+                          name="DateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                          dataType="i4"
+                          name="LocationKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DriverKey]"
+                          dataType="i4"
+                          name="DriverKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TripMileage]"
+                          dataType="numeric"
+                          name="TripMileage"
+                          precision="18"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TripCharge]"
+                          dataType="numeric"
+                          name="TripCharge"
+                          precision="18"
+                          scale="4" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[vwDataForFactTrips]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[cissql.matrix.txstate.edu_cis4349sp19s251.DWTaxiService-mjr186]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[TripNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TripNumber]"
+                          length="50"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[TripNumber]"
+                          name="TripNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                          name="DateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                          name="LocationKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[TripCharge]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TripCharge]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[TripCharge]"
+                          name="TripCharge"
+                          precision="18"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[DriverKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DriverKey]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[DriverKey]"
+                          name="DriverKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[TripMileage]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TripMileage]"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].Columns[TripMileage]"
+                          name="TripMileage"
+                          precision="18"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TripNumber]"
+                          dataType="wstr"
+                          length="50"
+                          name="TripNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                          dataType="i4"
+                          name="DateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                          dataType="i4"
+                          name="LocationKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TripCharge]"
+                          dataType="numeric"
+                          name="TripCharge"
+                          precision="18"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DriverKey]"
+                          dataType="i4"
+                          name="DriverKey" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TripMileage]"
+                          dataType="numeric"
+                          name="TripMileage"
+                          precision="18"
+                          scale="4" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TripNumber]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TripNumber]"
+                          name="TripNumber" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                          dataType="i4"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                          name="DateKey" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                          dataType="i4"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                          name="LocationKey" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TripCharge]"
+                          dataType="numeric"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TripCharge]"
+                          name="TripCharge"
+                          precision="18"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TripMileage]"
+                          dataType="numeric"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TripMileage]"
+                          name="TripMileage"
+                          precision="18"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DriverKey]"
+                          dataType="i4"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DriverKey]"
+                          name="DriverKey" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Fill Fact Table Sequence Container\Fill FactTrip View.Paths[OLE DB Source Output]"
+                  endId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pre-ETL Tasks Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D9FB47C2-978B-4F24-A098-4C25309CBCCC}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pre-ETL Tasks Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Pre-ETL Tasks Sequence Container\Add Back FK Execute SQL Tasks"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8C9EF748-7C02-4B8A-AB5F-E0F215F57010}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Add Back FK Execute SQL Tasks"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}"
+              SQLTask:SqlStatementSource="ALTER TABLE [dbo].[DimLocation]  WITH CHECK ADD  CONSTRAINT [FK_DimLocation_DimCity] FOREIGN KEY([CityKey])&#xA;REFERENCES [dbo].[DimCity] ([CityKey])&#xA;&#xA;ALTER TABLE [dbo].[FactTrips]  WITH CHECK ADD  CONSTRAINT [FK_FactTrips_DimDates] FOREIGN KEY([DateKey])&#xA;REFERENCES [dbo].[DimDates] ([DateKey])&#xA;&#xA;ALTER TABLE [dbo].[FactTrips]  WITH CHECK ADD  CONSTRAINT [FK_FactTrips_DimDriver] FOREIGN KEY([DriverKey])&#xA;REFERENCES [dbo].[DimDriver] ([DriverKey])&#xA;&#xA;ALTER TABLE [dbo].[FactTrips]  WITH CHECK ADD  CONSTRAINT [FK_FactTrips_DimLocation] FOREIGN KEY([LocationKey])&#xA;REFERENCES [dbo].[DimLocation] ([LocationKey])" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Pre-ETL Tasks Sequence Container\Drop FK Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B967D137-77DB-4ADF-9742-DFF5C63C8DE0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Drop FK Execute SQL Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}"
+              SQLTask:SqlStatementSource="ALTER TABLE [dbo].[FactTrips] DROP CONSTRAINT [FK_FactTrips_DimDriver]&#xA;ALTER TABLE [dbo].[FactTrips] DROP CONSTRAINT [FK_FactTrips_DimLocation]&#xA;ALTER TABLE [dbo].[FactTrips] DROP CONSTRAINT [FK_FactTrips_DimDates]&#xA;ALTER TABLE [dbo].[DimLocation] DROP CONSTRAINT [FK_DimLocation_DimCity]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Pre-ETL Tasks Sequence Container\Truncate All Tabels"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A10AF5FE-5645-48FE-817D-52BCA8FAA7CA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate All Tabels"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B70CE60F-DCCC-4F4A-B5F6-1E46FAE96DFE}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[DimCity]&#xA;TRUNCATE TABLE [dbo].[DimDates]&#xA;TRUNCATE TABLE [dbo].[DimDriver]&#xA;TRUNCATE TABLE [dbo].[DimLocation]&#xA;TRUNCATE TABLE [dbo].[FactTrips]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Pre-ETL Tasks Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{11A173DD-215E-4BDC-9F95-58FE6232615D}"
+          DTS:From="Package\Pre-ETL Tasks Sequence Container\Drop FK Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Pre-ETL Tasks Sequence Container\Truncate All Tabels" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Pre-ETL Tasks Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B7E89C6C-D04F-46EE-BE07-C70A48BDE04E}"
+          DTS:From="Package\Pre-ETL Tasks Sequence Container\Truncate All Tabels"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Pre-ETL Tasks Sequence Container\Add Back FK Execute SQL Tasks" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{76AA514B-B2E8-44F6-A687-C33994437423}"
+      DTS:From="Package\Pre-ETL Tasks Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fill Dimension Tables Sequence Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{FC70A878-B91F-4AB2-AB2C-37A644EAB0B1}"
+      DTS:From="Package\Fill Dimension Tables Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Fill Fact Table Sequence Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimCity"
+          TopLeft="90,15" />
+        <NodeLayout
+          Size="141.333333333334,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimDates"
+          TopLeft="82,161" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimDriver (sp)"
+          TopLeft="69,86" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimLocations"
+          TopLeft="81,252" />
+        <EdgeLayout
+          Id="Package\Fill Dimension Tables Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="153.5,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill Dimension Tables Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="151.75,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill Dimension Tables Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="156.25,203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="326,349.333333333334"
+          Size="326,392"
+          Id="Package\Fill Dimension Tables Sequence Container"
+          TopLeft="472,22" />
+        <NodeLayout
+          Size="158.666666666667,42"
+          Id="Package\Fill Fact Table Sequence Container\Fill FactTrip View"
+          TopLeft="46,18" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="244,138"
+          Size="244,181.333333333334"
+          Id="Package\Fill Fact Table Sequence Container"
+          TopLeft="582.571428571429,470.142857142857" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Pre-ETL Tasks Sequence Container\Add Back FK Execute SQL Tasks"
+          TopLeft="29,151" />
+        <NodeLayout
+          Size="205.333333333334,42"
+          Id="Package\Pre-ETL Tasks Sequence Container\Drop FK Execute SQL Task"
+          TopLeft="53,7" />
+        <NodeLayout
+          Size="169.333333333334,42"
+          Id="Package\Pre-ETL Tasks Sequence Container\Truncate All Tabels"
+          TopLeft="58,80" />
+        <EdgeLayout
+          Id="Package\Pre-ETL Tasks Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="155.5,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13,31"
+              Start="0,0"
+              End="-13,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="-4,15.5" />
+                  <mssgle:LineSegment
+                    End="-9,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9,15.5"
+                    Point2="-13,15.5"
+                    Point3="-13,19.5" />
+                  <mssgle:LineSegment
+                    End="-13,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pre-ETL Tasks Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="143.25,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="289.333333333334,248"
+          Size="289.333333333334,290.666666666667"
+          Id="Package\Pre-ETL Tasks Sequence Container"
+          TopLeft="59,13" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="348,158.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,59.5"
+              Start="0,0"
+              End="116.5,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="58,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58,0"
+                    Point2="62,0"
+                    Point3="62,4" />
+                  <mssgle:LineSegment
+                    End="62,55.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62,55.5"
+                    Point2="62,59.5"
+                    Point3="66,59.5" />
+                  <mssgle:LineSegment
+                    End="116.5,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="635,414">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69.571428571429,56.142857142857"
+              Start="0,0"
+              End="69.571428571429,48.642857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.0714285714285" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.0714285714285"
+                    Point2="0,28.0714285714285"
+                    Point3="4,28.0714285714285" />
+                  <mssgle:LineSegment
+                    End="65.571428571429,28.0714285714285" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.571428571429,28.0714285714285"
+                    Point2="69.571428571429,28.0714285714285"
+                    Point3="69.571428571429,32.0714285714285" />
+                  <mssgle:LineSegment
+                    End="69.571428571429,48.642857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Fill Dimension Tables Sequence Container\Fill DimCity">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="288,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService"
+          TopLeft="119,43" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186"
+          TopLeft="113,296" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Derived Column"
+          TopLeft="409,136" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Data Conversion"
+          TopLeft="416,222" />
+        <EdgeLayout
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimCity.Paths[Data Conversion Output]"
+          TopLeft="494,264">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-254,32"
+              Start="0,0"
+              End="-254,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="-4,16" />
+                  <mssgle:LineSegment
+                    End="-250,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-250,16"
+                    Point2="-254,16"
+                    Point3="-254,20" />
+                  <mssgle:LineSegment
+                    End="-254,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimCity.Paths[OLE DB Source Output]"
+          TopLeft="263,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="223,51"
+              Start="0,0"
+              End="223,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="219,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="219,25.5"
+                    Point2="223,25.5"
+                    Point3="223,29.5" />
+                  <mssgle:LineSegment
+                    End="223,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimCity.Paths[Derived Column Output]"
+          TopLeft="486,178">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,44"
+              Start="0,0"
+              End="8,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="4,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,22"
+                    Point2="8,22"
+                    Point3="8,26" />
+                  <mssgle:LineSegment
+                    End="8,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Get City Data From City Table in TaxiService">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Dimension Tables Sequence Container\Fill DimCity\Fill DimCity in DWTaxiService-mjr186">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fill Dimension Tables Sequence Container\Fill DimLocations">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="238.666666666667,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP"
+          TopLeft="82,21" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations"
+          TopLeft="753,161" />
+        <EdgeLayout
+          Id="Package\Fill Dimension Tables Sequence Container\Fill DimLocations.Paths[OLE DB Source Output]"
+          TopLeft="201.5,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="630.5,98"
+              Start="0,0"
+              End="630.5,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45"
+                    Point2="0,49"
+                    Point3="4,49" />
+                  <mssgle:LineSegment
+                    End="626.5,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="626.5,49"
+                    Point2="630.5,49"
+                    Point3="630.5,53" />
+                  <mssgle:LineSegment
+                    End="630.5,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Fill DimLocations">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Dimension Tables Sequence Container\Fill DimLocations\Gets DimLocation data from OLTP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fill Fact Table Sequence Container\Fill FactTrip View">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source"
+          TopLeft="220,81" />
+        <NodeLayout
+          Size="170.666666666667,42"
+          Id="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination"
+          TopLeft="423,310" />
+        <EdgeLayout
+          Id="Package\Fill Fact Table Sequence Container\Fill FactTrip View.Paths[OLE DB Source Output]"
+          TopLeft="295,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="213.5,187"
+              Start="0,0"
+              End="213.5,179.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,89.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,89.5"
+                    Point2="0,93.5"
+                    Point3="4,93.5" />
+                  <mssgle:LineSegment
+                    End="209.5,93.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="209.5,93.5"
+                    Point2="213.5,93.5"
+                    Point3="213.5,97.5" />
+                  <mssgle:LineSegment
+                    End="213.5,179.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Fact Table Sequence Container\Fill FactTrip View\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
